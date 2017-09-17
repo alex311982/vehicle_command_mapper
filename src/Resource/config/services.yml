@@ -1,0 +1,11 @@
+services:
+
+    command.factory:
+        class: Framework\Service\CommandFactory
+        calls:
+            - [setContainer, ['@app.container']]
+
+    vehicle.factory:
+        class: Framework\Service\VehicleFactory
+        calls:
+            - [setContainer, ['@app.container']]
