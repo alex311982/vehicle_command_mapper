@@ -2,6 +2,7 @@
 
 namespace Framework\Service;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Framework\Command\InterfaceCommand;
 use Framework\Exception\CommandNotAvailableException;
@@ -18,16 +19,16 @@ class CommandFactory extends AbstractCommandFactory
      * @param array $names
      * @return Collection
      */
-    public function processCommands(array $names): Collection
+    public function processCommands(array $names): array
     {
-        $this->commands->clear();
+        $commands = new ArrayCollection();
 
         foreach ($names as $name) {
             $vehicleObj = $this->processCommand($name);
-            $this->commands->add($vehicleObj);
+            $commands->add($vehicleObj);
         }
 
-        return $this->commands;
+        return $commands->toArray();
     }
 
     /**

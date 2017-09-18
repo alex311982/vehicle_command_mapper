@@ -7,7 +7,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 
 interface CommandFactoryInterface
 {
-    public function processCommands(array $names): Collection;
+    public function processCommands(array $names): array;
 
     public function setContainer(ContainerInterface $container);
 }

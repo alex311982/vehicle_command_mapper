@@ -60,11 +60,19 @@ class Vehicle implements VehicleInterface
     }
 
     /**
+     * @return array
+     */
+    public function getCommands(): array
+    {
+        return $this->commands->toArray();
+    }
+
+    /**
      *
      */
     public function executeCommands()
     {
-        foreach ($this->commands as $command) {
+        foreach ($this->getCommands() as $command) {
             $command->execute();
         }
     }

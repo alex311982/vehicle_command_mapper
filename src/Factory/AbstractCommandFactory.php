@@ -14,22 +14,9 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 abstract class AbstractCommandFactory implements CommandFactoryInterface
 {
     /**
-     * @var Collection
-     */
-    protected $commands;
-
-    /**
      * @var ContainerInterface
      */
     private $container;
-
-    /**
-     * AbstractCommandFactory constructor.
-     */
-    public function __construct()
-    {
-        $this->commands = new ArrayCollection();
-    }
 
     /**
      * @param ContainerInterface $container
@@ -39,6 +26,16 @@ abstract class AbstractCommandFactory implements CommandFactoryInterface
         $this->container = $container;
     }
 
+    /**
+     * @param array $names
+     * @return Collection
+     */
+    abstract public function processCommands(array $names): array;
+
+    /**
+     * @return ContainerInterface
+     * @throws InstanceIsNotSetException
+     */
     protected function getContainer(): ContainerInterface
     {
         if (!$this->container instanceof ContainerInterface) {
@@ -47,10 +44,4 @@ abstract class AbstractCommandFactory implements CommandFactoryInterface
 
         return $this->container;
     }
-
-    /**
-     * @param array $names
-     * @return Collection
-     */
-    abstract public function processCommands(array $names): Collection;
 }

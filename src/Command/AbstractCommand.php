@@ -74,5 +74,5 @@ abstract class AbstractCommand implements InterfaceCommand
      * Execute a Command
      *  @return mixed | $response
      */
-    abstract protected function processCommand();
+    abstract protected function processCommand(): bool;
 }

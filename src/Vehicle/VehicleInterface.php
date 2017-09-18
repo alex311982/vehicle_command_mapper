@@ -9,4 +9,6 @@ interface VehicleInterface
     public function getName(): string;
 
     public function executeCommands();
+
+    public function getCommands(): array;
 }
