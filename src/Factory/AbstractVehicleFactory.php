@@ -14,22 +14,9 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 abstract class AbstractVehicleFactory implements VehicleFactoryInterface
 {
     /**
-     * @var ArrayCollection
-     */
-    protected $vehicles;
-
-    /**
      * @var ContainerInterface
      */
     private $container;
-
-    /**
-     * AbstractVehicleFactory constructor.
-     */
-    public function __construct()
-    {
-        $this->vehicles = new ArrayCollection();
-    }
 
     /**
      * @param ContainerInterface $container
@@ -39,6 +26,16 @@ abstract class AbstractVehicleFactory implements VehicleFactoryInterface
         $this->container = $container;
     }
 
+    /**
+     * @param array $names
+     * @return Collection
+     */
+    abstract public function processVehicles(array $names) : Collection;
+
+    /**
+     * @return ContainerInterface
+     * @throws InstanceIsNotSetException
+     */
     protected function getContainer(): ContainerInterface
     {
         if (!$this->container instanceof ContainerInterface) {
@@ -47,11 +44,5 @@ abstract class AbstractVehicleFactory implements VehicleFactoryInterface
 
         return $this->container;
     }
-
-    /**
-     * @param array $names
-     * @return Collection
-     */
-    abstract public function processVehicles(array $names) : Collection;
 
 }

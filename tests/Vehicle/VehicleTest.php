@@ -29,9 +29,7 @@ class VehicleTest extends TestCase
 
     protected function setUp()
     {
-        $this->commandFactoryMock = $this->getMockBuilder(CommandFactoryInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $this->commandFactoryMock = $this->createMock(CommandFactoryInterface::class);
 
         $this->vehicle = new Vehicle('test_vehicle', $this->commandFactoryMock);
     }

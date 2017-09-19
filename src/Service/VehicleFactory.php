@@ -2,6 +2,7 @@
 
 namespace Framework\Service;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Framework\Exception\VehicleNotAvailableException;
 use Framework\Factory\AbstractVehicleFactory;
@@ -20,14 +21,14 @@ class VehicleFactory extends AbstractVehicleFactory
      */
     public function processVehicles(array $names): Collection
     {
-        $this->vehicles->clear();
+        $vehicles = new ArrayCollection();
 
         foreach ($names as $name) {
             $vehicleObj = $this->processVehicle($name);
-            $this->vehicles->add($vehicleObj);
+            $vehicles->add($vehicleObj);
         }
 
-        return $this->vehicles;
+        return $vehicles;
     }
 
     /**

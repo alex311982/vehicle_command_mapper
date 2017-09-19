@@ -2,7 +2,6 @@
 
 namespace Framework\Factory;
 
-use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Framework\Exception\InstanceIsNotSetException;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -30,7 +29,7 @@ abstract class AbstractCommandFactory implements CommandFactoryInterface
      * @param array $names
      * @return Collection
      */
-    abstract public function processCommands(array $names): array;
+    abstract public function processCommands(array $names): Collection;
 
     /**
      * @return ContainerInterface

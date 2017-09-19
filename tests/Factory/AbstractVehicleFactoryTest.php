@@ -10,33 +10,33 @@ namespace Tests\Framework\Factory;
 
 use PHPUnit\Framework\TestCase;
 use Psr\Container\ContainerInterface;
-use Tests\Factory\Mock\CommandFactoryMock;
 use Tests\Factory\Mock\ContainerMock;
+use Tests\Factory\Mock\VehicleFactoryMock;
 
 /**
- * Class AbstractCommandFactoryTest
+ * Class AbstractVehicleFactoryTest
  * @package Tests\Framework\Factory
  */
-class AbstractCommandFactoryTest extends TestCase
+class AbstractVehicleFactoryTest extends TestCase
 {
     /**
-     * @var CommandFactoryMock
+     * @var VehicleFactoryMock
      */
-    protected $commandFactoryMock;
+    protected $vehicleFactoryMock;
 
     protected function setUp()
     {
-        $this->commandFactoryMock = new CommandFactoryMock();
+        $this->vehicleFactoryMock = new VehicleFactoryMock();
     }
 
     public function testGetContainer()
     {
         $containerMock = new ContainerMock();
 
-        $this->commandFactoryMock->setContainer($containerMock);
+        $this->vehicleFactoryMock->setContainer($containerMock);
 
         $this->assertInstanceOf(ContainerInterface::class,
-            $this->commandFactoryMock->getContainer());
+            $this->vehicleFactoryMock->getContainer());
     }
 
     /**
@@ -44,6 +44,6 @@ class AbstractCommandFactoryTest extends TestCase
      */
     public function testGetContainerException()
     {
-        $this->commandFactoryMock->getContainer();
+        $this->vehicleFactoryMock->getContainer();
     }
 }

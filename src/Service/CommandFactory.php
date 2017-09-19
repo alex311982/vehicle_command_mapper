@@ -19,7 +19,7 @@ class CommandFactory extends AbstractCommandFactory
      * @param array $names
      * @return Collection
      */
-    public function processCommands(array $names): array
+    public function processCommands(array $names): Collection
     {
         $commands = new ArrayCollection();
 
@@ -28,7 +28,7 @@ class CommandFactory extends AbstractCommandFactory
             $commands->add($vehicleObj);
         }
 
-        return $commands->toArray();
+        return $commands;
     }
 
     /**
