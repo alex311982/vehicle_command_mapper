@@ -2,6 +2,10 @@
 
 namespace Framework\Command;
 
+/**
+ * Class AbstractCommand
+ * @package Framework\Command
+ */
 abstract class AbstractCommand implements InterfaceCommand
 {
     /**
@@ -12,15 +16,15 @@ abstract class AbstractCommand implements InterfaceCommand
 
     /**
      *
-     * @var mixed
+     * @var bool
      */
     protected $response;
 
     /**
      *
-     * @return mixed
+     * @return bool
      */
-    public function getResponse()
+    public function getResponse(): bool
     {
         return $this->response;
     }
@@ -29,7 +33,7 @@ abstract class AbstractCommand implements InterfaceCommand
      *
      * @return bool
      */
-    public function isExecuted()
+    public function isExecuted(): bool
     {
         return $this->isExecuted;
     }
@@ -55,7 +59,7 @@ abstract class AbstractCommand implements InterfaceCommand
      * @uses: processCommand()
      *
      * @param void
-     * @return mixed | $response
+     * @return InterfaceCommand
      */
     public final function execute() : InterfaceCommand
     {
@@ -72,7 +76,7 @@ abstract class AbstractCommand implements InterfaceCommand
     /**
      * Abstract Method
      * Execute a Command
-     *  @return mixed | $response
+     *  @return bool
      */
     abstract protected function processCommand(): bool;
 }

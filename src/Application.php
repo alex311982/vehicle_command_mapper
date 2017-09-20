@@ -7,10 +7,20 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 
+/**
+ * Class Application
+ * @package Framework
+ */
 class Application
 {
+    /**
+     * @var ContainerInterface
+     */
     protected $container;
 
+    /**
+     * @return null
+     */
     public function bootstrap()
     {
         $container = new ContainerBuilder();
@@ -25,6 +35,9 @@ class Application
         $this->container = $container;
     }
 
+    /**
+     * @return ContainerInterface
+     */
     public function getContainer(): ContainerInterface
     {
         return $this->container;

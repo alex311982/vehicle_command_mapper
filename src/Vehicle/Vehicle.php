@@ -41,6 +41,7 @@ class Vehicle implements VehicleInterface
 
     /**
      * @param array $names
+     * @return null
      */
     public function addCommands(array $names)
     {
@@ -68,7 +69,7 @@ class Vehicle implements VehicleInterface
     }
 
     /**
-     *
+     * @return null
      */
     public function executeCommands()
     {

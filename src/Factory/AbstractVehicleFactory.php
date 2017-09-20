@@ -20,6 +20,7 @@ abstract class AbstractVehicleFactory implements VehicleFactoryInterface
 
     /**
      * @param ContainerInterface $container
+     * @return null
      */
     public function setContainer(ContainerInterface $container)
     {

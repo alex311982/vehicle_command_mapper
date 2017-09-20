@@ -19,6 +19,7 @@ abstract class AbstractCommandFactory implements CommandFactoryInterface
 
     /**
      * @param ContainerInterface $container
+     * @return null
      */
     public function setContainer(ContainerInterface $container)
     {
