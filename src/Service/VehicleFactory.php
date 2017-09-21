@@ -41,7 +41,7 @@ class VehicleFactory extends AbstractVehicleFactory
         try {
             return $this->getContainer()->get($name . '.vehicle');
         } catch(ServiceNotFoundException $e) {
-            throw new VehicleNotAvailableException($name . '.vehicle');
+            throw new VehicleNotAvailableException('Vehicle ' . $name . '.vehicle is not exist');
         }
     }
 

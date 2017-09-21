@@ -41,7 +41,7 @@ class CommandFactory extends AbstractCommandFactory
         try {
             return $this->getContainer()->get($name . '.command');
         } catch(ServiceNotFoundException $e) {
-            throw new CommandNotAvailableException($name . '.command');
+            throw new CommandNotAvailableException('Command ' . $name . '.command is not exist');
         }
     }
 
