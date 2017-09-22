@@ -26,7 +26,7 @@ class AbstractCommandFactoryTest extends TestCase
 
     protected function setUp()
     {
-        $this->commandFactoryMock = new CommandFactoryMock();
+        $this->commandFactoryMock = new CommandFactoryMock('command');
     }
 
     public function testGetContainer()

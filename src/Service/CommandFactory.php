@@ -38,10 +38,12 @@ class CommandFactory extends AbstractCommandFactory
      */
     protected function processCommand(string $name): InterfaceCommand
     {
+        $nameWithNamespace = $name . $this->namespaceName;
+
         try {
-            return $this->getContainer()->get($name . '.command');
+            return $this->getContainer()->get($nameWithNamespace);
         } catch(ServiceNotFoundException $e) {
-            throw new CommandNotAvailableException('Command ' . $name . '.command is not exist');
+            throw new CommandNotAvailableException(sprintf('Command %s is not exist', $nameWithNamespace));
         }
     }
 

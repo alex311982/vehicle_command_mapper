@@ -1,0 +1,4 @@
+parameters:
+
+    command.namespace-name: command
+    vehicle.namespace-name: vehicle

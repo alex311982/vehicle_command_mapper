@@ -29,7 +29,7 @@ class VehicleFactoryTest extends TestCase
 
     public function setUp()
     {
-        $this->factory = new VehicleFactory();
+        $this->factory = new VehicleFactory('vehicle');
         $this->containerMock = $this->createMock(ContainerInterface::class);
 
         $this->factory->setContainer($this->containerMock);

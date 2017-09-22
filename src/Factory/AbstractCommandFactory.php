@@ -13,9 +13,27 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 abstract class AbstractCommandFactory implements CommandFactoryInterface
 {
     /**
+     * @var string
+     */
+    protected $namespaceName;
+
+    /**
      * @var ContainerInterface
      */
     private $container;
+
+    /**
+     * AbstractCommandFactory constructor.
+     * @param null|string $namespaceName
+     */
+    public function __construct(?string $namespaceName)
+    {
+        if (is_null($this->namespaceName)) {
+            $this->namespaceName = '';
+        }
+
+        $this->namespaceName = '.' . $namespaceName;
+    }
 
     /**
      * @param ContainerInterface $container

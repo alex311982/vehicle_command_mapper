@@ -29,7 +29,7 @@ class CommandFactoryTest extends TestCase
 
     public function setUp()
     {
-        $this->factory = new CommandFactory();
+        $this->factory = new CommandFactory('command');
         $this->containerMock = $this->createMock(ContainerInterface::class);
 
         $this->factory->setContainer($this->containerMock);

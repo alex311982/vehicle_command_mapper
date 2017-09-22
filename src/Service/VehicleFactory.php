@@ -38,10 +38,12 @@ class VehicleFactory extends AbstractVehicleFactory
      */
     protected function processVehicle(string $name): VehicleInterface
     {
+        $nameWithNamespace = $name . $this->namespaceName;
+
         try {
-            return $this->getContainer()->get($name . '.vehicle');
+            return $this->getContainer()->get($nameWithNamespace);
         } catch(ServiceNotFoundException $e) {
-            throw new VehicleNotAvailableException('Vehicle ' . $name . '.vehicle is not exist');
+            throw new VehicleNotAvailableException(sprintf('Vehicle %s is not exist', $nameWithNamespace));
         }
     }
 

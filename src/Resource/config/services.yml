@@ -1,11 +1,16 @@
+imports:
+    - { resource: parameters.yml }
+
 services:
 
     command.factory:
         class: Framework\Service\CommandFactory
+        arguments: ["%command.namespace-name%"]
         calls:
-            - [setContainer, ['@app.container']]
+            - [setContainer, ["@app.container"]]
 
     vehicle.factory:
         class: Framework\Service\VehicleFactory
+        arguments: ["%vehicle.namespace-name%"]
         calls:
-            - [setContainer, ['@app.container']]
+            - [setContainer, ["@app.container"]]

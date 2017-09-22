@@ -26,7 +26,7 @@ class AbstractVehicleFactoryTest extends TestCase
 
     protected function setUp()
     {
-        $this->vehicleFactoryMock = new VehicleFactoryMock();
+        $this->vehicleFactoryMock = new VehicleFactoryMock('vehicle');
     }
 
     public function testGetContainer()
