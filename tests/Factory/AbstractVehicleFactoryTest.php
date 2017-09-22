@@ -9,8 +9,7 @@
 namespace Tests\Framework\Factory;
 
 use PHPUnit\Framework\TestCase;
-use Psr\Container\ContainerInterface;
-use Tests\Factory\Mock\ContainerMock;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 use Tests\Factory\Mock\VehicleFactoryMock;
 
 /**
@@ -31,7 +30,7 @@ class AbstractVehicleFactoryTest extends TestCase
 
     public function testGetContainer()
     {
-        $containerMock = new ContainerMock();
+        $containerMock = $this->createMock(ContainerInterface::class);
 
         $this->vehicleFactoryMock->setContainer($containerMock);
 

@@ -9,9 +9,8 @@
 namespace Tests\Framework\Factory;
 
 use PHPUnit\Framework\TestCase;
-use Psr\Container\ContainerInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 use Tests\Factory\Mock\CommandFactoryMock;
-use Tests\Factory\Mock\ContainerMock;
 
 /**
  * Class AbstractCommandFactoryTest
@@ -31,7 +30,7 @@ class AbstractCommandFactoryTest extends TestCase
 
     public function testGetContainer()
     {
-        $containerMock = new ContainerMock();
+        $containerMock = $this->createMock(ContainerInterface::class);
 
         $this->commandFactoryMock->setContainer($containerMock);
 
